@@ -7,6 +7,10 @@ import com.epam.jwd.core_final.domain.Planet;
 import com.epam.jwd.core_final.domain.Spaceship;
 import com.epam.jwd.core_final.exception.InvalidStateException;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -29,6 +33,17 @@ public class NassaContext implements ApplicationContext {
      */
     @Override
     public void init() throws InvalidStateException {
+        File file = new File("C:\\Users\\Денис\\IdeaProjects\\nasa\\jwd-core-final\\src\\main\\resources\\input\\crew");
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
+            System.out.println("at least we started");
+            crewMembers = (Collection<CrewMember>) inputStream.readObject();
+            System.out.println("yeah");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found");
+            e.printStackTrace();
+        }
         throw new InvalidStateException();
     }
 }

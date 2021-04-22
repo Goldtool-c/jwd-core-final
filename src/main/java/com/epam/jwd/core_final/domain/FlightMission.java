@@ -1,5 +1,8 @@
 package com.epam.jwd.core_final.domain;
 
+import java.time.LocalDate;
+import java.util.List;
+
 /**
  * Expected fields:
  * <p>
@@ -14,5 +17,81 @@ package com.epam.jwd.core_final.domain;
  * to {@link Planet}
  */
 public class FlightMission extends AbstractBaseEntity {
-    // todo
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private long distance;
+    private Spaceship assignedSpaceShip;
+    private List<CrewMember> assignedCrew;
+    private MissionResult missionResult;
+    private Planet from;
+    private Planet to;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public long getDistance() {
+        return distance;
+    }
+
+    public void setDistance(long distance) {
+        this.distance = distance;
+    }
+
+    public Spaceship getAssignedSpaceShip() {
+        return assignedSpaceShip;
+    }
+
+    public void setAssignedSpaceShip(Spaceship assignedSpaceShip) {
+        this.assignedSpaceShip = assignedSpaceShip;
+    }
+
+    public List<CrewMember> getAssignedCrew() {
+        return assignedCrew;
+    }
+
+    public void setAssignedCrew(List<CrewMember> assignedCrew) {
+        this.assignedCrew = assignedCrew;
+    }
+
+    public MissionResult getMissionResult() {
+        return missionResult;
+    }
+
+    public void setMissionResult(MissionResult missionResult) {
+        this.missionResult = missionResult;
+    }
+
+    public Planet getFrom() {
+        return from;
+    }
+
+    public void setFrom(Planet from) {
+        this.from = from;
+    }
+
+    public Planet getTo() {
+        return to;
+    }
+
+    public void setTo(Planet to) {
+        this.to = to;
+    }
+// todo
 }

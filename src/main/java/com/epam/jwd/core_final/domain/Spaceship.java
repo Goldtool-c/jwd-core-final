@@ -6,5 +6,7 @@ package com.epam.jwd.core_final.domain;
  * isReadyForNextMissions {@link Boolean} - true by default. Set to false, after first failed mission
  */
 public class Spaceship extends AbstractBaseEntity {
+    private long flightDistance;
+    private boolean isReadyForNextMissions = true;
     //todo
 }
