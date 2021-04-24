@@ -11,9 +11,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public enum ConverterStringToObject {
+public enum ConverterStringToCrew {
     GENERAL;
-    public ArrayList<String> StringToObject(File file)
+    public ArrayList<String> fileToString(File file)
     {
         ArrayList<String> strings = new ArrayList<>();
         try(FileInputStream fin=new FileInputStream(file))
@@ -24,7 +24,7 @@ public enum ConverterStringToObject {
             while((i=fin.read())!=-1){
                 sb.append((char) i);
                 if((char)i==';'){
-                    //System.out.println(sb);
+                    System.out.println(sb);
                     strings.add(sb.toString());
                     sb=new StringBuilder();
                     j++;
@@ -35,7 +35,6 @@ public enum ConverterStringToObject {
 
             System.out.println(ex.getMessage());
         }
-        boolean[] toDel=new boolean[strings.size()];
         String example = "role,name,rank;";
         String example1 = "#role,name,rank;";
         int n = strings.size();
@@ -49,15 +48,10 @@ public enum ConverterStringToObject {
         StringBuilder sb1 = new StringBuilder(strings.get(0));
         sb1.delete(0,5);
         strings.set(0, sb1.toString());
-        System.out.println("start");
-        for (int i = 0; i < strings.size(); i++) {
-            System.out.println(strings.get(i));
-        }
-        System.out.println(strings.size()+"  "+n);
         return strings;
     }
     public ArrayList<AbstractBaseEntity> convert(File file) throws InvalidStateException {
-        ArrayList<String> strings = StringToObject(file);
+        ArrayList<String> strings = fileToString(file);
         ArrayList<AbstractBaseEntity> dat = new ArrayList<>();
         for (int i = 0; i <strings.size(); i++) {
             StringBuilder sb = new StringBuilder();
@@ -75,10 +69,10 @@ public enum ConverterStringToObject {
                 if(parameters.charAt(j)==','||j==parameters.length()-1)
                 {
                     switch (counter) {
-                        case 0: {role=Role.resolveRoleById(Integer.parseInt(sb1.toString())); break;}
+                        case 0: {role= Role.resolveRoleById(Integer.parseInt(sb1.toString())); break;}
                         case 1: {name=sb1.toString(); break;}
                         // case 2: {rank=Rank.resolveRankById(Integer.parseInt(sb1.toString()))} спросить
-                        case 2: {rank=Rank.resolveRankById(Integer.parseInt(String.valueOf(parameters.charAt(parameters.length()-1)))); break;}
+                        case 2: {rank= Rank.resolveRankById(Integer.parseInt(String.valueOf(parameters.charAt(parameters.length()-1)))); break;}
                         default:{throw new InvalidStateException("Unknown format exception"); }
                     }
                     sb1=new StringBuilder();
