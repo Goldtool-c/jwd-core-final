@@ -1,8 +1,8 @@
 package com.epam.jwd.core_final;
 
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
-import com.epam.jwd.core_final.context.Application;
-import com.epam.jwd.core_final.converter.ConverterStringToCrew;
+import com.epam.jwd.core_final.converter.ConverterStringToCrewMember;
+import com.epam.jwd.core_final.converter.ConverterStringToSpaceship;
 import com.epam.jwd.core_final.exception.InvalidStateException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 
 public class Main extends javafx.application.Application {
@@ -28,10 +26,12 @@ public class Main extends javafx.application.Application {
         }
         File file = new File(".\\src\\main\\resources\\input\\crew");
         try {
-            BaseEntityStorage.GENERAL.setCrewStorage(ConverterStringToCrew.GENERAL.convert(file));
+            BaseEntityStorage.GENERAL.setCrewStorage(ConverterStringToCrewMember.GENERAL.convert(file));
         } catch (InvalidStateException e) {
             e.printStackTrace();
         }
+        file = new File(".\\src\\main\\resources\\input\\spaceships");
+        ConverterStringToSpaceship.GENERAL.convert(file);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();

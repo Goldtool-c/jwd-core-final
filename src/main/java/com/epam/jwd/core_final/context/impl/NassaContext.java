@@ -2,7 +2,7 @@ package com.epam.jwd.core_final.context.impl;
 
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.context.ApplicationContext;
-import com.epam.jwd.core_final.converter.ConverterStringToCrew;
+import com.epam.jwd.core_final.converter.ConverterStringToCrewMember;
 import com.epam.jwd.core_final.domain.BaseEntity;
 import com.epam.jwd.core_final.domain.CrewMember;
 import com.epam.jwd.core_final.domain.Planet;
@@ -34,7 +34,7 @@ public class NassaContext implements ApplicationContext {
     public void init() throws InvalidStateException {
         File file = new File(".src\\main\\resources\\input\\crew");
         //System.out.println(fi);
-        BaseEntityStorage.GENERAL.setCrewStorage(ConverterStringToCrew.GENERAL.convert(file));
+        BaseEntityStorage.GENERAL.setCrewStorage(ConverterStringToCrewMember.GENERAL.convert(file));
         throw new InvalidStateException("hth");
     }
 }

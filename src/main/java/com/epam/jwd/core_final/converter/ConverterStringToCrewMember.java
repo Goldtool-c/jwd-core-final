@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public enum ConverterStringToCrew {
+public enum ConverterStringToCrewMember {
     GENERAL;
     public ArrayList<String> fileToString(File file)
     {
@@ -24,7 +24,6 @@ public enum ConverterStringToCrew {
             while((i=fin.read())!=-1){
                 sb.append((char) i);
                 if((char)i==';'){
-                    System.out.println(sb);
                     strings.add(sb.toString());
                     sb=new StringBuilder();
                     j++;
