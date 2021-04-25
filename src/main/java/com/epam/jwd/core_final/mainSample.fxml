@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane fx:id="ShowAll" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="Anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.epam.jwd.core_final.Controller.MainController">
    <children>
-      <ComboBox layoutX="36.0" layoutY="49.0" prefWidth="150.0" promptText="Show" />
+      <ComboBox fx:id="ShowAll" layoutX="36.0" layoutY="49.0" prefWidth="150.0" promptText="Show" />
       <Button fx:id="startNewMission" layoutX="232.0" layoutY="49.0" mnemonicParsing="false" text="StartNewMission" />
    </children>
 </AnchorPane>
