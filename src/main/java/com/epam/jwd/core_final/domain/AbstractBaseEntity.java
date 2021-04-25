@@ -18,7 +18,6 @@ public abstract class AbstractBaseEntity implements BaseEntity {
 
     @Override
     public String getName() {
-        // todo
-        return null;
+        return name;
     }
 }

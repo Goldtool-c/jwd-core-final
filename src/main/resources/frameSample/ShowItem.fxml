@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="ShowItem" prefHeight="400.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.epam.jwd.core_final.Controller.ShowItemController">
+   <children>
+      <TableView fx:id="ItemTable" prefHeight="400.0" prefWidth="440.0">
+         <columns>
+            <TableColumn fx:id="RoleColumn" prefWidth="120.0" text="Role" />
+            <TableColumn fx:id="NameColumn" prefWidth="200.0" text="Name" />
+            <TableColumn fx:id="RankColumn" prefWidth="120.0" text="Rank" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

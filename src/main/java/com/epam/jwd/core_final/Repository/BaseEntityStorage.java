@@ -12,4 +12,8 @@ public enum BaseEntityStorage {
     public void setCrewStorage(ArrayList<AbstractBaseEntity> crewStorage) {
         BaseEntityStorage.crewStorage = crewStorage;
     }
+    public ArrayList<AbstractBaseEntity> getCrewStorage()
+    {
+        return crewStorage;
+    }
 }

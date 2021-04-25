@@ -21,13 +21,11 @@ public class Main extends javafx.application.Application {
         Parent root = null;
         try {
             File sample = new File(".\\src\\main\\java\\com\\epam\\jwd\\core_final\\mainSample.fxml");
-            URL url = new URL("file:/D:/ENG/jwd-core-final/src/main/java/com/epam/jwd/core_final/mainSample.fxml");
-            url = new URL("file:/"+sample.getAbsolutePath());
+            URL url = new URL("file:/"+sample.getAbsolutePath());
             root = FXMLLoader.load(url);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //File file = new File(".src\\main\\resources\\input\\crew");
         File file = new File(".\\src\\main\\resources\\input\\crew");
         try {
             BaseEntityStorage.GENERAL.setCrewStorage(ConverterStringToCrew.GENERAL.convert(file));

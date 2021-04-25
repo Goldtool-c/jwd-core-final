@@ -1,5 +1,6 @@
 package com.epam.jwd.core_final.Controller;
 
+import com.epam.jwd.core_final.Application.Events;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,6 +26,7 @@ public class MainController implements Initializable {
     {
         ObservableList<String> options = FXCollections.observableArrayList("CrewMembers", "Spaceships", "Planet map", "Missions");
         ShowAll.setItems(options);
+        ShowAll.setOnAction(event -> Events.GENERAL.ShowAllEvent(ShowAll));
     }
 
 }

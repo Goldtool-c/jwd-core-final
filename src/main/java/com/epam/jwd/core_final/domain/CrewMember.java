@@ -12,6 +12,7 @@ import java.io.Serializable;
 public class CrewMember extends AbstractBaseEntity implements Serializable {
     private final Role role;
     private final Rank rank;
+    //private final String rankS;
     private boolean ready=true;
     public CrewMember(String name, Role role, Rank rank)
     {
@@ -19,9 +20,30 @@ public class CrewMember extends AbstractBaseEntity implements Serializable {
         this.role=role;
         this.rank=rank;
     }
-
     public void setReady(boolean ready) {
         this.ready = ready;
+    }
+    public String getRole()
+    {
+        switch (role)
+        {
+            case PILOT: return "Pilot";
+            case COMMANDER: return "Commander";
+            case FLIGHT_ENGINEER: return "Flight engineer";
+            case MISSION_SPECIALIST: return "Mission specialist";
+            default: return "dummy";
+        }
+    }
+    public String getRank()
+    {
+        switch (rank)
+        {
+            case SECOND_OFFICER: return "Second officer";
+            case FIRST_OFFICER: return "First officer";
+            case TRAINEE: return "Trainee";
+            case CAPTAIN: return "Captain";
+            default: return "dummy";
+        }
     }
     public boolean isReadyForNextMissions(){ return ready; }
     // todo

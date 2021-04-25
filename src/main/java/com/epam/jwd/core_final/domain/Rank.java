@@ -26,7 +26,6 @@ public enum Rank implements BaseEntity {
     public String getName() {
         return null;
     }
-
     /**
      * todo via java.lang.enum methods!
      *
