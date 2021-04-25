@@ -12,7 +12,6 @@ import java.io.Serializable;
 public class CrewMember extends AbstractBaseEntity implements Serializable {
     private final Role role;
     private final Rank rank;
-    //private final String rankS;
     private boolean ready=true;
     public CrewMember(String name, Role role, Rank rank)
     {
