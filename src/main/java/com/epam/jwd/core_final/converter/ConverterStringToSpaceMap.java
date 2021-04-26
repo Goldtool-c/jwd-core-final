@@ -18,13 +18,12 @@ public enum ConverterStringToSpaceMap {
             int j = 0;
             StringBuilder sb = new StringBuilder();
             while ((i = fin.read()) != -1) {
-                sb.append((char) i);
                 if ((char) i == ',') {
                     max++;
                     strings.add(sb.toString());
                     sb = new StringBuilder();
                     j++;
-                }
+                } else {sb.append((char) i);}
                 if((char) i=='\n'&&max>=this.n) {this.n=max; max=0;}
             }
         } catch (IOException ex) {
