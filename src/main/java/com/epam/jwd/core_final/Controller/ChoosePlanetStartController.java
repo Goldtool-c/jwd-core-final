@@ -2,7 +2,7 @@ package com.epam.jwd.core_final.Controller;
 
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.domain.Planet;
-import com.epam.jwd.core_final.domain.PlanetTemp;
+import com.epam.jwd.core_final.Repository.PlanetTemp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;

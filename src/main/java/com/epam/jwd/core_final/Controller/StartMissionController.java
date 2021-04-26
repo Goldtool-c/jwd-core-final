@@ -1,7 +1,11 @@
 package com.epam.jwd.core_final.Controller;
 
 import com.epam.jwd.core_final.Application.ButtonEvents;
-import com.epam.jwd.core_final.domain.PlanetTemp;
+import com.epam.jwd.core_final.Repository.BaseEntityStorage;
+import com.epam.jwd.core_final.Repository.PlanetTemp;
+import com.epam.jwd.core_final.domain.AbstractBaseEntity;
+import com.epam.jwd.core_final.domain.FlightMission;
+import com.epam.jwd.core_final.domain.SimpleMissionFabric;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -39,10 +43,10 @@ public class StartMissionController implements Initializable {
         start.setOnAction(event -> ButtonEvents.GENERAL.startPlanetEvent(
         ));
         finish.setOnAction(event -> ButtonEvents.GENERAL.finishPlanetEvent());
-        setAll.setOnAction(event->
-        {
-            planetStart.setText(name1 + " " + PlanetTemp.GENERAL.getFrom());
-            planetEnd.setText(name2 + " " + PlanetTemp.GENERAL.getTo());
+        setAll.setOnAction(event-> ButtonEvents.GENERAL.setAllEvent(name1, name2, planetStart, planetEnd, shipname));
+        confirm.setOnAction(event -> {
+            BaseEntityStorage.GENERAL.addMission(SimpleMissionFabric.INSTANCE.create(
+                    PlanetTemp.GENERAL.getFromP(),PlanetTemp.GENERAL.getToP(),PlanetTemp.GENERAL.getSpaceship()));
         });
     }
 }
