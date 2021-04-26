@@ -31,6 +31,7 @@ public class MainController implements Initializable {
             switch (ShowAll.getValue()) {
                 case "CrewMembers": { Events.GENERAL.ShowAllCrewEvent(ShowAll);break; }
                 case "Spaceships": {Events.GENERAL.ShowAllSpaceshipEvent(ShowAll);break;}
+                case "Planet map": {Events.GENERAL.ShowSpaceMap(ShowAll);break;}
             }
         });
     }

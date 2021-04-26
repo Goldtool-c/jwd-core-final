@@ -28,7 +28,6 @@ public enum Events {
     }
     public void ShowAllSpaceshipEvent(ComboBox<String> ShowAll)
     {
-        System.out.println("porn");
         File sample = new File(".\\src\\main\\resources\\frameSample\\ShowSpaceships.fxml");
         Parent root = null;
         try {
@@ -40,6 +39,21 @@ public enum Events {
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 380, 400));
+        primaryStage.show();
+    }
+    public void ShowSpaceMap(ComboBox<String> ShowAll)
+    {
+        File sample = new File(".\\src\\main\\resources\\frameSample\\ShowMap.fxml");
+        Parent root = null;
+        try {
+            URL url = new URL("file:/"+sample.getAbsolutePath());
+            root = FXMLLoader.load(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage primaryStage = new Stage();
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root, 330, 400));
         primaryStage.show();
     }
 }
