@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.epam.jwd.core_final.Controller.ShowMapController">
    <children>
-      <TableView layoutX="-1.0" prefHeight="400.0" prefWidth="330.0">
+      <TableView fx:id="planetTable" layoutX="-1.0" prefHeight="400.0" prefWidth="330.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="214.40002745389938" text="Name" />
           <TableColumn prefWidth="59.19993591308594" text="X" fx:id="xColumn" />
