@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.epam.jwd.core_final.Controller.StartMissionController">
+   <children>
+      <Button fx:id="start" layoutX="36.0" layoutY="75.0" mnemonicParsing="false" text="Choose Start" />
+      <Button fx:id="finish" layoutX="136.0" layoutY="75.0" mnemonicParsing="false" text="Choose Finish" />
+      <Label fx:id="shipname" layoutX="36.0" layoutY="138.0" text="Spaceship name" />
+      <Label fx:id="planetStart" layoutX="36.0" layoutY="171.0" text="Planet Start" />
+      <Label fx:id="planetEnd" layoutX="36.0" layoutY="200.0" text="Planet End" />
+      <Button fx:id="confirm" layoutX="114.0" layoutY="324.0" mnemonicParsing="false" text="Confirm" />
+      <Button fx:id="setAll" layoutX="114.0" layoutY="245.0" mnemonicParsing="false" text="Set All" />
+   </children>
+</AnchorPane>

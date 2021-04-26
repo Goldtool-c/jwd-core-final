@@ -1,5 +1,6 @@
 package com.epam.jwd.core_final.Controller;
 
+import com.epam.jwd.core_final.Application.ButtonEvents;
 import com.epam.jwd.core_final.Application.Events;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,6 +35,7 @@ public class MainController implements Initializable {
                 case "Planet map": {Events.GENERAL.ShowSpaceMap(ShowAll);break;}
             }
         });
+        startNewMission.setOnAction(event -> ButtonEvents.GENERAL.startMissionEvent());
     }
 
 }
