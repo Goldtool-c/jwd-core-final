@@ -1,8 +1,7 @@
 package com.epam.jwd.core_final.domain;
 
-import javafx.geometry.Point2D;
-
 import java.awt.*;
+import java.util.Objects;
 
 /**
  * Expected fields:
@@ -19,5 +18,20 @@ public class Planet extends AbstractBaseEntity{
     public int getY(){return cords.y;}
     public Point getCords() {
         return cords;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean flag=false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Planet planet = (Planet) o;
+        if(cords.getX()==planet.getX()&&cords.getY()==planet.getY()) return true;
+        return Objects.equals(cords, planet.cords);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cords);
     }
 }

@@ -19,8 +19,9 @@ import java.util.List;
 public class FlightMission extends AbstractBaseEntity {
     private LocalDate startDate;
     private LocalDate endDate;
-    private long distance;
+    private double distance;
     private Spaceship assignedSpaceShip;
+    private final int successRate=75;
     private List<CrewMember> assignedCrew;
     private MissionResult missionResult;
     private Planet from;
@@ -46,11 +47,11 @@ public class FlightMission extends AbstractBaseEntity {
         this.endDate = endDate;
     }
 
-    public long getDistance() {
+    public double getDistance() {
         return distance;
     }
 
-    public void setDistance(long distance) {
+    public void setDistance(double distance) {
         this.distance = distance;
     }
 

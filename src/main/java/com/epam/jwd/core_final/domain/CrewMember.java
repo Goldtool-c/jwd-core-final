@@ -9,7 +9,7 @@ import java.io.Serializable;
  * rank {@link Rank} - member rank
  * isReadyForNextMissions {@link Boolean} - true by default. Set to false, after first failed mission
  */
-public class CrewMember extends AbstractBaseEntity implements Serializable {
+public class CrewMember extends AbstractBaseEntity{
     private final Role role;
     private final Rank rank;
     private boolean ready=true;
@@ -32,6 +32,10 @@ public class CrewMember extends AbstractBaseEntity implements Serializable {
             case MISSION_SPECIALIST: return "Mission specialist";
             default: return "dummy";
         }
+    }
+    public Role getRole(int i)
+    {
+        return this.role;
     }
     public String getRank()
     {

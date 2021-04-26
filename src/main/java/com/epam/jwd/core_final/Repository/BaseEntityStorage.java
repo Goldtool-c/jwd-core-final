@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public enum BaseEntityStorage {
     GENERAL;
-    private static ArrayList<AbstractBaseEntity> crewStorage;
+    private static ArrayList<CrewMember> crewStorage;
     private static ArrayList<Spaceship> shipStorage;
     private static ArrayList<Planet> planetStorage;
     public ArrayList<Planet> getPlanetStorage() {
@@ -18,10 +18,10 @@ public enum BaseEntityStorage {
     public void setPlanetStorage(ArrayList<Planet> planetStorage) {
         BaseEntityStorage.planetStorage = planetStorage;
     }
-    public void setCrewStorage(ArrayList<AbstractBaseEntity> crewStorage) {
+    public void setCrewStorage(ArrayList<CrewMember> crewStorage) {
         BaseEntityStorage.crewStorage = crewStorage;
     }
-    public ArrayList<AbstractBaseEntity> getCrewStorage()
+    public ArrayList<CrewMember> getCrewStorage()
     {
         return crewStorage;
     }

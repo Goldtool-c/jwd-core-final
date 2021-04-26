@@ -49,9 +49,9 @@ public enum ConverterStringToCrewMember {
         strings.set(0, sb1.toString());
         return strings;
     }
-    public ArrayList<AbstractBaseEntity> convert(File file) throws InvalidStateException {
+    public ArrayList<CrewMember> convert(File file) throws InvalidStateException {
         ArrayList<String> strings = fileToString(file);
-        ArrayList<AbstractBaseEntity> dat = new ArrayList<>();
+        ArrayList<CrewMember> dat = new ArrayList<>();
         for (int i = 0; i <strings.size(); i++) {
             StringBuilder sb = new StringBuilder();
             String parameters;
