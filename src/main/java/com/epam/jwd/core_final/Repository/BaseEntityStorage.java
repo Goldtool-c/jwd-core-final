@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public enum BaseEntityStorage {
     GENERAL;
     private static ArrayList<AbstractBaseEntity> crewStorage;
+    private static ArrayList<AbstractBaseEntity> shipStorage;
 
     public void setCrewStorage(ArrayList<AbstractBaseEntity> crewStorage) {
         BaseEntityStorage.crewStorage = crewStorage;
@@ -15,5 +16,14 @@ public enum BaseEntityStorage {
     public ArrayList<AbstractBaseEntity> getCrewStorage()
     {
         return crewStorage;
+    }
+
+    public void setShipStorage(ArrayList<AbstractBaseEntity> shipStorage) {
+        BaseEntityStorage.shipStorage = shipStorage;
+    }
+
+    public ArrayList<AbstractBaseEntity> getShipStorage()
+    {
+        return shipStorage;
     }
 }

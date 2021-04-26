@@ -31,7 +31,7 @@ public class Main extends javafx.application.Application {
             e.printStackTrace();
         }
         file = new File(".\\src\\main\\resources\\input\\spaceships");
-        ConverterStringToSpaceship.GENERAL.convert(file);
+        BaseEntityStorage.GENERAL.setShipStorage(ConverterStringToSpaceship.GENERAL.convert(file));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();

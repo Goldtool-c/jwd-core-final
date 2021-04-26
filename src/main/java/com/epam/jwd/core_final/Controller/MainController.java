@@ -26,7 +26,13 @@ public class MainController implements Initializable {
     {
         ObservableList<String> options = FXCollections.observableArrayList("CrewMembers", "Spaceships", "Planet map", "Missions");
         ShowAll.setItems(options);
-        ShowAll.setOnAction(event -> Events.GENERAL.ShowAllEvent(ShowAll));
+        ShowAll.setOnAction(event ->
+        {
+            switch (ShowAll.getValue()) {
+                case "CrewMembers": { Events.GENERAL.ShowAllCrewEvent(ShowAll);break; }
+                case "Spaceships": {Events.GENERAL.ShowAllSpaceshipEvent(ShowAll);break;}
+            }
+        });
     }
 
 }

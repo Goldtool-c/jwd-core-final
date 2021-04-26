@@ -2,7 +2,6 @@ package com.epam.jwd.core_final.converter;
 
 import com.epam.jwd.core_final.domain.AbstractBaseEntity;
 import com.epam.jwd.core_final.domain.Spaceship;
-import com.epam.jwd.core_final.exception.InvalidStateException;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,10 +37,10 @@ public enum ConverterStringToSpaceship {
         strings.set(0, sb1.toString());
         return strings;
     }
-    public ArrayList<Spaceship> convert(File file)
+    public ArrayList<AbstractBaseEntity> convert(File file)
     {
         ArrayList<String> strings = ConverterStringToSpaceship.GENERAL.fileToString(file);
-        ArrayList<Spaceship> data = new ArrayList<>();
+        ArrayList<AbstractBaseEntity> data = new ArrayList<>();
         int count = 0;
         StringBuilder sb = new StringBuilder();
         String name = null;

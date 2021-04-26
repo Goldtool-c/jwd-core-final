@@ -11,7 +11,7 @@ import java.net.URL;
 
 public enum Events {
     GENERAL;
-    public void ShowAllEvent(ComboBox<String> ShowAll)
+    public void ShowAllCrewEvent(ComboBox<String> ShowAll)
     {
         File sample = new File(".\\src\\main\\resources\\frameSample\\ShowItem.fxml");
         Parent root = null;
@@ -24,6 +24,22 @@ public enum Events {
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 440, 400));
+        primaryStage.show();
+    }
+    public void ShowAllSpaceshipEvent(ComboBox<String> ShowAll)
+    {
+        System.out.println("porn");
+        File sample = new File(".\\src\\main\\resources\\frameSample\\ShowSpaceships.fxml");
+        Parent root = null;
+        try {
+            URL url = new URL("file:/"+sample.getAbsolutePath());
+            root = FXMLLoader.load(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage primaryStage = new Stage();
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root, 380, 400));
         primaryStage.show();
     }
 }
