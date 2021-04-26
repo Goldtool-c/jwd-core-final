@@ -2,6 +2,7 @@ package com.epam.jwd.core_final;
 
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.converter.ConverterStringToCrewMember;
+import com.epam.jwd.core_final.converter.ConverterStringToSpaceMap;
 import com.epam.jwd.core_final.converter.ConverterStringToSpaceship;
 import com.epam.jwd.core_final.exception.InvalidStateException;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +33,8 @@ public class Main extends javafx.application.Application {
         }
         file = new File(".\\src\\main\\resources\\input\\spaceships");
         BaseEntityStorage.GENERAL.setShipStorage(ConverterStringToSpaceship.GENERAL.convert(file));
+        file = new File(".\\src\\main\\resources\\input\\spacemap");
+        BaseEntityStorage.GENERAL.setPlanetStorage(ConverterStringToSpaceMap.GENERAL.convert(file));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();

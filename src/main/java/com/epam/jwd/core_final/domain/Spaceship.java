@@ -19,6 +19,11 @@ public class Spaceship extends AbstractBaseEntity{
         this.flightDistance=flightDistance;
         System.arraycopy(requires, 0, this.requires, 0, requires.length);
     }
+
+    public boolean getReady() {
+        return isReadyForNextMissions;
+    }
+
     public long getFlightDistance()
     {
         return flightDistance;

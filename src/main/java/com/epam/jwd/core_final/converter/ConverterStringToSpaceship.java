@@ -37,16 +37,15 @@ public enum ConverterStringToSpaceship {
         strings.set(0, sb1.toString());
         return strings;
     }
-    public ArrayList<AbstractBaseEntity> convert(File file)
+    public ArrayList<Spaceship> convert(File file)
     {
         ArrayList<String> strings = ConverterStringToSpaceship.GENERAL.fileToString(file);
-        ArrayList<AbstractBaseEntity> data = new ArrayList<>();
+        ArrayList<Spaceship> data = new ArrayList<>();
         int count = 0;
         StringBuilder sb = new StringBuilder();
         String name = null;
         long distance = 0;
         short []requires=new short[4];
-        //System.out.println("vot tak vot"+strings.get(0).length());
         for (int i = 0; i <strings.size(); i++) {
             sb=new StringBuilder();
             System.out.println();
@@ -59,7 +58,6 @@ public enum ConverterStringToSpaceship {
                      case 0: {name=sb.toString(); break;}
                      case 1: {distance=Long.parseLong(sb.toString()); break;}
                      case 2: {
-          //               System.out.print(sb.toString().charAt(sb.length()-1));
                          char temp=sb.toString().charAt(sb.length()-1);
                          requires[0]= Short.parseShort(String.valueOf(temp)); break;
                      }
@@ -86,12 +84,6 @@ public enum ConverterStringToSpaceship {
             }
             data.add(new Spaceship(name, distance, requires));
         }
-        /*for (int i = 0; i <data.size() ; i++) {
-            for (int j = 0; j < 4; j++) {
-                System.out.print(data.get(i).requires[j]+" ");
-            }
-            System.out.println();
-        }*/
         return data;
     }
 }

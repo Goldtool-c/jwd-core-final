@@ -11,10 +11,12 @@ import java.awt.*;
  */
 public class Planet extends AbstractBaseEntity{
     Point cords;
-    public Planet(int x, int y) {
+    public Planet(String name, int x, int y) {
+        this.name = name;
         cords = new Point(x, y);
     }
-
+    public int getX(){return cords.x;}
+    public int getY(){return cords.y;}
     public Point getCords() {
         return cords;
     }

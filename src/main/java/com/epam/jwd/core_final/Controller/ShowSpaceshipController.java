@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -20,16 +21,15 @@ public class ShowSpaceshipController implements Initializable {
     @FXML
     private AnchorPane anchor;
     @FXML
-    private TableView<AbstractBaseEntity> shipTable;
+    private TableView<Spaceship> shipTable;
     @FXML
-    private TableColumn<AbstractBaseEntity, String> nameColumn;
+    private TableColumn<Spaceship, String> nameColumn;
 
     @FXML
-    private TableColumn<AbstractBaseEntity, String> distanceColumn;
-
+    private TableColumn<Spaceship, String> distanceColumn;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<AbstractBaseEntity> ships = FXCollections.observableArrayList();
+        ObservableList<Spaceship> ships = FXCollections.observableArrayList();
         ships.addAll(BaseEntityStorage.GENERAL.getShipStorage());
         this.nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         this.distanceColumn.setCellValueFactory(new PropertyValueFactory<>("flightDistance"));
@@ -38,3 +38,4 @@ public class ShowSpaceshipController implements Initializable {
         shipTable.setItems(ships);
     }
 }
+
