@@ -135,5 +135,9 @@ public enum ButtonEvents {
         }
         label.setText(DateOperations.GENERAL.dateToString(date));
     }
-
+    public void currentDatePlusEvent(Label label)
+    {
+        label.setText(PlanetTemp.GENERAL.getCurrentDate().plusDays(1).toString());
+        PlanetTemp.GENERAL.setCurrentDate(PlanetTemp.GENERAL.getCurrentDate().plusDays(1));
+    }
 }

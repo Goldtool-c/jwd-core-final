@@ -2,12 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane fx:id="Anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.epam.jwd.core_final.Controller.MainController">
    <children>
       <ComboBox fx:id="ShowAll" layoutX="36.0" layoutY="49.0" prefWidth="150.0" promptText="Show" />
       <Button fx:id="startNewMission" layoutX="232.0" layoutY="49.0" mnemonicParsing="false" text="StartNewMission" />
+      <Label layoutX="36.0" layoutY="183.0" text="Current date:" />
+      <Label fx:id="currentDate" layoutX="122.0" layoutY="183.0" />
+      <Button fx:id="plusDate" layoutX="218.0" layoutY="178.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="27.0" text="+" />
    </children>
 </AnchorPane>

@@ -4,13 +4,24 @@ import com.epam.jwd.core_final.domain.FlightMission;
 import com.epam.jwd.core_final.domain.Planet;
 import com.epam.jwd.core_final.domain.Spaceship;
 
+import java.time.LocalDate;
+
 public enum PlanetTemp {
     GENERAL;
     private static String from;
+    private static LocalDate currentDate;
     private static String to;
     private static Planet toP;
     private static Planet fromP;
     private static Spaceship spaceship;
+
+    public  LocalDate getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(LocalDate currentDate) {
+        PlanetTemp.currentDate = currentDate;
+    }
 
     public Planet getToP() {
         return toP;

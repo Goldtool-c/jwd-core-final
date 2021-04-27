@@ -26,12 +26,13 @@ public class FlightMission extends AbstractBaseEntity {
     private MissionResult missionResult;
     private Planet from;
     private Planet to;
-
+    public String getEndDate() { return endDate.toString(); }
+    public String getStartDate() { return startDate.toString();}
     public void setName(String name) {
         this.name = name;
     }
 
-    public LocalDate getStartDate() {
+    public LocalDate getStartDate1() {
         return startDate;
     }
 
@@ -39,7 +40,7 @@ public class FlightMission extends AbstractBaseEntity {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public LocalDate getEndDate1() {
         return endDate;
     }
 
@@ -47,9 +48,7 @@ public class FlightMission extends AbstractBaseEntity {
         this.endDate = endDate;
     }
 
-    public double getDistance() {
-        return distance;
-    }
+    public double getDistance() { return (int) distance; }
 
     public void setDistance(double distance) {
         this.distance = distance;
@@ -79,18 +78,13 @@ public class FlightMission extends AbstractBaseEntity {
         this.missionResult = missionResult;
     }
 
-    public Planet getFrom() {
-        return from;
+    public String getFrom() {
+        return from.name;
     }
-
     public void setFrom(Planet from) {
         this.from = from;
     }
-
-    public Planet getTo() {
-        return to;
-    }
-
+    public String getTo() {return to.name;}
     public void setTo(Planet to) {
         this.to = to;
     }

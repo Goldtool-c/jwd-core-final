@@ -20,8 +20,9 @@ public enum MissionFabric {
         int[] dateInt = DateOperations.GENERAL.StringToDate(date);
         LocalDate dateStart = LocalDate.of(dateInt[2], dateInt[1], dateInt[0]);
         LocalDate dateEnd = dateStart.plusDays(5);
+        flightMission.setName(from.getName()+" to "+to.getName());
         flightMission.setStartDate(dateStart);
-        flightMission.setStartDate(dateEnd);
+        flightMission.setEndDate(dateEnd);
         int k1,k2;
         double d;
         k1=(from.getX()-to.getX())*(from.getX()-to.getX());

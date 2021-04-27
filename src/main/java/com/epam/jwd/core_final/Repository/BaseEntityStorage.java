@@ -9,14 +9,14 @@ public enum BaseEntityStorage {
     private static ArrayList<CrewMember> crewStorage;
     private static ArrayList<Spaceship> shipStorage;
     private static ArrayList<Planet> planetStorage;
-    private static ArrayList<FlightMission> flightMission;
+    private static ArrayList<FlightMission> flightMission = new ArrayList<>();
     public ArrayList<Planet> getPlanetStorage() {
         return planetStorage;
     }
-    public void addMission(FlightMission flightMission)
-    {
-        BaseEntityStorage.flightMission.add(flightMission);
-    }
+
+    public ArrayList<FlightMission> getFlightMission() { return flightMission; }
+    public void setFlightMission(ArrayList<FlightMission> flightMission) { BaseEntityStorage.flightMission = flightMission; }
+    public void addMission(FlightMission flightMission) { BaseEntityStorage.flightMission.add(flightMission); }
     public void setPlanetStorage(ArrayList<Planet> planetStorage) {
         BaseEntityStorage.planetStorage = planetStorage;
     }

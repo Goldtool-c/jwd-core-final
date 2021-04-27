@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.epam.jwd.core_final.Controller.ShowMissionController">
+   <children>
+      <TableView fx:id="missionTable" prefHeight="400.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="125.5999755859375" text="Name" />
+          <TableColumn fx:id="startColumn" prefWidth="90.39996337890625" text="Start" />
+            <TableColumn fx:id="endColumn" text="End" />
+            <TableColumn fx:id="startPlanetColumn" prefWidth="93.5999755859375" text="Start planet" />
+            <TableColumn fx:id="endPlanetColumn" prefWidth="99.99993896484375" text="End planet" />
+            <TableColumn fx:id="distanceColumn" prefWidth="111.99993896484375" text="Distance" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
