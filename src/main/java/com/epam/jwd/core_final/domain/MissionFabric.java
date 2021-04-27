@@ -23,6 +23,7 @@ public enum MissionFabric {
         flightMission.setName(from.getName()+" to "+to.getName());
         flightMission.setStartDate(dateStart);
         flightMission.setEndDate(dateEnd);
+        flightMission.setAssignedSpaceShip(spaceship);
         int k1,k2;
         double d;
         k1=(from.getX()-to.getX())*(from.getX()-to.getX());

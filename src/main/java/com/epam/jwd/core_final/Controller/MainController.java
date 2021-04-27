@@ -30,9 +30,12 @@ public class MainController implements Initializable {
     private Button plusDate;
     @FXML
     private Label currentDate;
+    @FXML
+    private Button saveMission;
     @Override
     public void initialize(URL Ur1, ResourceBundle rb)
     {
+        saveMission.setOnAction(event -> ButtonEvents.GENERAL.saveMissionEvent());
         ObservableList<String> options = FXCollections.observableArrayList("CrewMembers", "Spaceships", "Planet map", "Missions");
         ShowAll.setItems(options);
         currentDate.setText(LocalDate.now().toString());

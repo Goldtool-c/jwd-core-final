@@ -2,6 +2,7 @@ package com.epam.jwd.core_final.Application;
 
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.Repository.PlanetTemp;
+import com.epam.jwd.core_final.converter.ConverterMissionToString;
 import com.epam.jwd.core_final.criteria.SpaceshipCriteria;
 import com.epam.jwd.core_final.domain.FlightMission;
 import com.epam.jwd.core_final.domain.Planet;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -139,5 +141,18 @@ public enum ButtonEvents {
     {
         label.setText(PlanetTemp.GENERAL.getCurrentDate().plusDays(1).toString());
         PlanetTemp.GENERAL.setCurrentDate(PlanetTemp.GENERAL.getCurrentDate().plusDays(1));
+    }
+    public void saveMissionEvent()
+    {
+        String missions = ConverterMissionToString.GENERAL.convert();
+        try(FileWriter writer = new FileWriter(".\\src\\main\\resources\\input\\missions", false))
+        {
+            writer.write(missions);
+            writer.flush();
+        }
+        catch(IOException ex){
+
+            System.out.println(ex.getMessage());
+        }
     }
 }
