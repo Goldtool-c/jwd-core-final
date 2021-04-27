@@ -13,6 +13,7 @@ import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,7 +50,8 @@ public class ChoosePlanetStartController implements Initializable {
                     TableColumn column = pos.getTableColumn();
                     String val = column.getCellData(row).toString();
                     PlanetTemp.GENERAL.setFrom(val);
-                    System.out.println(PlanetTemp.GENERAL.getFrom());
+                    Stage stage = (Stage) planetTable.getScene().getWindow();
+                    stage.close();
                 }
             }
         });

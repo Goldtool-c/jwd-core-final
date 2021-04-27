@@ -6,6 +6,7 @@ import com.epam.jwd.core_final.criteria.SpaceshipCriteria;
 import com.epam.jwd.core_final.domain.FlightMission;
 import com.epam.jwd.core_final.domain.Planet;
 import com.epam.jwd.core_final.domain.Spaceship;
+import com.epam.jwd.core_final.util.DateOperations;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public enum ButtonEvents {
@@ -64,8 +66,9 @@ public enum ButtonEvents {
         primaryStage.setScene(new Scene(root, 330, 400));
         primaryStage.show();
     }
-    public void setAllEvent(String name1, String name2, Label planetStart, Label planetEnd, Label shipName)
+    public void setAllEvent(String name1, String name2, Label planetStart, Label planetEnd, Label shipName, Label date)
     {
+        date.setText(DateOperations.GENERAL.getDate());
         planetStart.setText(name1 + " " + PlanetTemp.GENERAL.getFrom());
         planetEnd.setText(name2 + " " + PlanetTemp.GENERAL.getTo());
         ArrayList<Spaceship> temp = BaseEntityStorage.GENERAL.getShipStorage();
@@ -96,4 +99,41 @@ public enum ButtonEvents {
             }
         }
     }
+    public void datePlusEvent(Label dat)
+    {
+        int[] date=DateOperations.GENERAL.StringToDate(dat.getText());
+        date[0]++;
+        if(date[1]==1||date[1]==3||date[1]==5||date[1]==7||date[1]==8||date[1]==10||date[1]==12)
+        {
+            if(date[0]>31)
+            {
+                date[0]=1;
+                date[1]++;
+            }
+        } else if(date[1]==2)
+        {
+            if(date[0]>28)
+            {date[0]=1; date[1]++;}
+        } else
+        {
+            if(date[0]>30)
+            {date[0]=1; date[1]++;}
+        }
+        if(date[1]>12){date[1]=1; date[2]++;}
+        dat.setText(DateOperations.GENERAL.dateToString(date));
+    }
+    public void dateMinusEvent(Label label)
+    {
+        int[] date=DateOperations.GENERAL.StringToDate(label.getText());
+        date[0]--;
+        if(date[0]==0)
+        {
+            if(date[1]==1){ date[0]=31; date[1]=12; date[2]--;}
+            if(date[1]==2||date[1]==4||date[1]==6||date[1]==8||date[1]==9||date[1]==11) { date[0]=31; date[1]--; }
+            if(date[1]==3){date[0]=28; date[1]--;}
+            if(date[1]==5||date[1]==7||date[1]==10||date[1]==12){date[0]=30; date[1]--;}
+        }
+        label.setText(DateOperations.GENERAL.dateToString(date));
+    }
+
 }

@@ -4,18 +4,24 @@ import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.Validator.FlightMissionValidator;
 import com.epam.jwd.core_final.exception.InValidPlanetException;
 import com.epam.jwd.core_final.exception.InValidSpaceshipException;
+import com.epam.jwd.core_final.util.DateOperations;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public enum SimpleMissionFabric {
+public enum MissionFabric {
     INSTANCE;
-    public FlightMission create(Planet from, Planet to, Spaceship spaceship)
+    public FlightMission create(Planet from, Planet to, Spaceship spaceship, String date)
     {
         FlightMission flightMission = new FlightMission();
         flightMission.setFrom(from);
         flightMission.setTo(to);
+        int[] dateInt = DateOperations.GENERAL.StringToDate(date);
+        LocalDate dateStart = LocalDate.of(dateInt[2], dateInt[1], dateInt[0]);
+        LocalDate dateEnd = dateStart.plusDays(5);
+        flightMission.setStartDate(dateStart);
+        flightMission.setStartDate(dateEnd);
         int k1,k2;
         double d;
         k1=(from.getX()-to.getX())*(from.getX()-to.getX());
