@@ -1,5 +1,4 @@
 package com.epam.jwd.core_final.converter;
-import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.criteria.PlanetCriteria;
 import com.epam.jwd.core_final.criteria.SpaceshipCriteria;
 import com.epam.jwd.core_final.domain.FlightMission;
@@ -12,7 +11,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -105,7 +103,7 @@ public enum ConverterStringToMission {
                 } else break;
             }
             spaceship=new SpaceshipCriteria().nameSearch(sb.toString());
-            int k[]=DateOperations.GENERAL.localStringToDate(startDate.toString());
+            int[] k =DateOperations.GENERAL.localStringToDate(startDate.toString());
             flightMissions.add(MissionFabric.INSTANCE.create(from, to, spaceship, DateOperations.GENERAL.dateToString(k)));
         }
         return flightMissions;

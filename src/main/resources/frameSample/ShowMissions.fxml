@@ -4,17 +4,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.epam.jwd.core_final.Controller.ShowMissionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.epam.jwd.core_final.Controller.ShowMissionController">
    <children>
-      <TableView fx:id="missionTable" prefHeight="400.0" prefWidth="600.0">
+      <TableView fx:id="missionTable" prefHeight="400.0" prefWidth="658.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="125.5999755859375" text="Name" />
-          <TableColumn fx:id="startColumn" prefWidth="90.39996337890625" text="Start" />
-            <TableColumn fx:id="endColumn" text="End" />
-            <TableColumn fx:id="startPlanetColumn" prefWidth="93.5999755859375" text="Start planet" />
-            <TableColumn fx:id="endPlanetColumn" prefWidth="99.99993896484375" text="End planet" />
-            <TableColumn fx:id="distanceColumn" prefWidth="111.99993896484375" text="Distance" />
+          <TableColumn fx:id="startColumn" prefWidth="74.39996337890625" text="Start" />
+            <TableColumn fx:id="endColumn" prefWidth="74.4000244140625" text="End" />
+            <TableColumn fx:id="startPlanetColumn" prefWidth="96.0" text="Start planet" />
+            <TableColumn fx:id="endPlanetColumn" prefWidth="87.20001220703125" text="End planet" />
+            <TableColumn fx:id="distanceColumn" prefWidth="72.00006103515625" text="Distance" />
+            <TableColumn fx:id="spaceshipName" prefWidth="125.60001220703123" text="Spaceship" />
         </columns>
       </TableView>
    </children>

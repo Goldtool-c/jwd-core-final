@@ -68,7 +68,7 @@ public enum Events {
         }
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 658, 400));
         primaryStage.show();
     }
 }

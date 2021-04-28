@@ -23,7 +23,7 @@ public class Spaceship extends AbstractBaseEntity{
     public boolean getReady() {
         return isReadyForNextMissions;
     }
-
+    public void setReadyForNextMissions(boolean r) {this.isReadyForNextMissions=r;}
     public long getFlightDistance()
     {
         return flightDistance;

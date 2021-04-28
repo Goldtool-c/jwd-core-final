@@ -38,10 +38,14 @@ public class ShowMissionController implements Initializable {
     @FXML
     private TableColumn<FlightMission, String> distanceColumn;
 
+    @FXML
+    private TableColumn<FlightMission, String> spaceshipName;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<FlightMission> missions = FXCollections.observableArrayList();
         missions.addAll(BaseEntityStorage.GENERAL.getFlightMission());
+        this.spaceshipName.setCellValueFactory(new PropertyValueFactory<>("assignedSpaceship"));
         this.nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         this.startPlanetColumn.setCellValueFactory(new PropertyValueFactory<>("from"));
         this.endPlanetColumn.setCellValueFactory(new PropertyValueFactory<>("to"));

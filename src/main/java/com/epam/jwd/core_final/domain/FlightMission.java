@@ -32,7 +32,7 @@ public class FlightMission extends AbstractBaseEntity {
     public void setName(String name) {
         this.name = name;
     }
-
+    public String getAssignedSpaceship() {return assignedSpaceShip.name;}
     public LocalDate getStartDate1() {
         return startDate;
     }

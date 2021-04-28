@@ -24,6 +24,7 @@ public enum MissionFabric {
         flightMission.setStartDate(dateStart);
         flightMission.setEndDate(dateEnd);
         flightMission.setAssignedSpaceShip(spaceship);
+        spaceship.setReadyForNextMissions(false);
         int k1,k2;
         double d;
         k1=(from.getX()-to.getX())*(from.getX()-to.getX());
@@ -51,6 +52,7 @@ public enum MissionFabric {
             }
         }
         }
+        flightMission.setAssignedCrew(crew);
         return flightMission;
     }
 }

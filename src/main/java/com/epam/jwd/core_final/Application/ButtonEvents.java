@@ -4,14 +4,17 @@ import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.Repository.PlanetTemp;
 import com.epam.jwd.core_final.converter.ConverterMissionToString;
 import com.epam.jwd.core_final.criteria.SpaceshipCriteria;
+import com.epam.jwd.core_final.domain.CrewMember;
 import com.epam.jwd.core_final.domain.FlightMission;
 import com.epam.jwd.core_final.domain.Planet;
 import com.epam.jwd.core_final.domain.Spaceship;
 import com.epam.jwd.core_final.util.DateOperations;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -20,6 +23,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public enum ButtonEvents {
     GENERAL;
@@ -141,6 +146,43 @@ public enum ButtonEvents {
     {
         label.setText(PlanetTemp.GENERAL.getCurrentDate().plusDays(1).toString());
         PlanetTemp.GENERAL.setCurrentDate(PlanetTemp.GENERAL.getCurrentDate().plusDays(1));
+        ArrayList<FlightMission> flightMissions=BaseEntityStorage.GENERAL.getFlightMission();
+        for (int i = 0; i <flightMissions.size() ; i++) {
+            if(flightMissions.get(i).getEndDate1().toString().equals(label.getText()))
+            {
+                Stage stage=new Stage();
+                AnchorPane root = new AnchorPane();
+                Label nameLabel=new Label();
+                nameLabel.setText(flightMissions.get(i).getName());
+                Label resultLabel = new Label();
+                AnchorPane.setLeftAnchor(nameLabel, 0.0);
+                AnchorPane.setRightAnchor(nameLabel, 0.0);
+                AnchorPane.setLeftAnchor(resultLabel, 0.0);
+                AnchorPane.setRightAnchor(resultLabel, 0.0);
+                nameLabel.setAlignment(Pos.CENTER);
+                resultLabel.setAlignment(Pos.CENTER);
+                nameLabel.setStyle("-fx-font-size: 14px");
+                resultLabel.setStyle("-fx-font-size: 14px");
+                resultLabel.relocate(nameLabel.getLayoutX(), nameLabel.getLayoutY()+20);
+                if(Math.random()>0.75)
+                {
+                    resultLabel.setText("Mission failed");
+                    resultLabel.setStyle("-fx-background-color: red; -fx-font-size: 14px");
+                } else
+                {
+                    resultLabel.setText("Mission completed successfully");
+                    resultLabel.setStyle("-fx-background-color: green; -fx-font-size: 14px");
+                    List<CrewMember> crew = flightMissions.get(i).getAssignedCrew();
+                    flightMissions.get(i).getAssignedSpaceShip().setReadyForNextMissions(true);
+                    for (int j = 0; j < crew.size(); j++) {
+                        crew.get(i).setReady(true);
+                    }
+                }
+                root.getChildren().addAll(nameLabel, resultLabel);
+                stage.setScene(new Scene(root,250, 80));
+                stage.show();
+            }
+        }
     }
     public void saveMissionEvent()
     {
