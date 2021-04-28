@@ -26,7 +26,7 @@ public enum Init {
     {
         Parent root = null;
         try {
-            File sample = new File(".\\src\\main\\java\\com\\epam\\jwd\\core_final\\mainSample.fxml");
+            File sample = new File(".\\src\\main\\resources\\frameSample\\mainSample.fxml");
             URL url = new URL("file:/"+sample.getAbsolutePath());
             root = FXMLLoader.load(url);
         } catch (IOException e) {
