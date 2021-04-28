@@ -2,7 +2,7 @@ package com.epam.jwd.core_final.domain;
 
 import com.epam.jwd.core_final.Repository.PlanetTemp;
 
-import java.awt.*;
+import java.awt.Point;
 import java.util.Objects;
 
 /**
@@ -11,7 +11,11 @@ import java.util.Objects;
  * location could be a simple class Point with 2 coordinates
  */
 public class Planet extends AbstractBaseEntity{
-    Point cords;
+    private Point cords;
+    public Planet()
+    {
+
+    }
     public Planet(String name, int x, int y) {
         this.name = name;
         cords = new Point(x, y);
