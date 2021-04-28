@@ -1,5 +1,7 @@
 package com.epam.jwd.core_final.domain;
 
+import com.epam.jwd.core_final.Repository.PlanetTemp;
+
 import java.awt.*;
 import java.util.Objects;
 
@@ -13,6 +15,9 @@ public class Planet extends AbstractBaseEntity{
     public Planet(String name, int x, int y) {
         this.name = name;
         cords = new Point(x, y);
+        int id= PlanetTemp.GENERAL.getId()+1;
+        this.id=Integer.parseInt("1"+id);
+        PlanetTemp.GENERAL.setId(id);
     }
     public int getX(){return cords.x;}
     public int getY(){return cords.y;}

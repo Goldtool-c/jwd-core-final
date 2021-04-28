@@ -18,13 +18,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public enum ButtonEvents {
     GENERAL;
@@ -75,7 +77,7 @@ public enum ButtonEvents {
     }
     public void setAllEvent(String name1, String name2, Label planetStart, Label planetEnd, Label shipName, Label date)
     {
-        date.setText(DateOperations.GENERAL.getDate());
+        date.setText(PlanetTemp.GENERAL.getCurrentDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
         planetStart.setText(name1 + " " + PlanetTemp.GENERAL.getFrom());
         planetEnd.setText(name2 + " " + PlanetTemp.GENERAL.getTo());
         ArrayList<Spaceship> temp = BaseEntityStorage.GENERAL.getShipStorage();
@@ -127,6 +129,7 @@ public enum ButtonEvents {
             {date[0]=1; date[1]++;}
         }
         if(date[1]>12){date[1]=1; date[2]++;}
+
         dat.setText(DateOperations.GENERAL.dateToString(date));
     }
     public void dateMinusEvent(Label label)
@@ -140,7 +143,12 @@ public enum ButtonEvents {
             if(date[1]==3){date[0]=28; date[1]--;}
             if(date[1]==5||date[1]==7||date[1]==10||date[1]==12){date[0]=30; date[1]--;}
         }
-        label.setText(DateOperations.GENERAL.dateToString(date));
+        LocalDate date1=LocalDate.of(date[2], date[1], date[0]);
+        LocalDate date2=PlanetTemp.GENERAL.getCurrentDate();
+        if(date1.isAfter(date2))
+        {
+            label.setText(DateOperations.GENERAL.dateToString(date));
+        }
     }
     public void currentDatePlusEvent(Label label)
     {
@@ -187,7 +195,14 @@ public enum ButtonEvents {
     public void saveMissionEvent()
     {
         String missions = ConverterMissionToString.GENERAL.convert();
-        try(FileWriter writer = new FileWriter(".\\src\\main\\resources\\input\\missions", false))
+        String appPath=".\\src\\main\\resources\\application.properties";
+        Properties appProps = new Properties();
+        try {
+            appProps.load(new FileInputStream(appPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try(FileWriter writer = new FileWriter(".\\src\\main\\resources\\input\\"+appProps.getProperty("missionsFileName"), false))
         {
             writer.write(missions);
             writer.flush();

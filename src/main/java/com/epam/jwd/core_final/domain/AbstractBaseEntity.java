@@ -15,7 +15,10 @@ public abstract class AbstractBaseEntity implements BaseEntity {
         // todo
         return null;
     }
-
+    public void  setId(int id)
+    {
+        this.id=id;
+    }
     @Override
     public String getName() {
         return name;

@@ -1,5 +1,7 @@
 package com.epam.jwd.core_final.domain;
 
+import com.epam.jwd.core_final.Repository.PlanetTemp;
+
 import java.io.Serializable;
 
 /**
@@ -15,6 +17,9 @@ public class CrewMember extends AbstractBaseEntity{
     private boolean ready=true;
     public CrewMember(String name, Role role, Rank rank)
     {
+        int id= PlanetTemp.GENERAL.getId()+1;
+        this.id=Integer.parseInt("1"+id);
+        PlanetTemp.GENERAL.setId(id);
         this.name=name;
         this.role=role;
         this.rank=rank;

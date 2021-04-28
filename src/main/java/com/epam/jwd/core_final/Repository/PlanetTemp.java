@@ -14,6 +14,15 @@ public enum PlanetTemp {
     private static Planet toP;
     private static Planet fromP;
     private static Spaceship spaceship;
+    private static int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        PlanetTemp.id = id;
+    }
 
     public  LocalDate getCurrentDate() {
         return currentDate;

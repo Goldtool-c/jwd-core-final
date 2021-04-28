@@ -58,10 +58,7 @@ public class StartMissionController implements Initializable {
         confirm.setOnAction(event -> {
             FlightMission flightMission = MissionFabric.INSTANCE.create(
                     PlanetTemp.GENERAL.getFromP(),PlanetTemp.GENERAL.getToP(),PlanetTemp.GENERAL.getSpaceship(), dateStart.getText());
-            ArrayList<FlightMission> temp = new ArrayList<>();
-            for (int i = 0; i < BaseEntityStorage.GENERAL.getFlightMission().size(); i++) {
-                temp.add(BaseEntityStorage.GENERAL.getFlightMission().get(i));
-            }
+            ArrayList<FlightMission> temp = BaseEntityStorage.GENERAL.getFlightMission();
             temp.add(flightMission);
             BaseEntityStorage.GENERAL.setFlightMission(temp);
             Stage stage = (Stage) confirm.getScene().getWindow();
