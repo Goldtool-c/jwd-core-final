@@ -9,7 +9,7 @@
    <children>
       <ComboBox fx:id="ShowAll" layoutX="36.0" layoutY="49.0" prefWidth="150.0" promptText="Show" />
       <Button fx:id="startNewMission" layoutX="232.0" layoutY="49.0" mnemonicParsing="false" text="StartNewMission" />
-      <Label layoutX="36.0" layoutY="183.0" text="Current date:" />
+      <Label fx:id="text" layoutX="36.0" layoutY="183.0" text="Current date:" />
       <Label fx:id="currentDate" layoutX="122.0" layoutY="183.0" />
       <Button fx:id="plusDate" layoutX="218.0" layoutY="178.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="27.0" text="+" />
       <Button fx:id="saveMission" layoutX="384.0" layoutY="49.0" mnemonicParsing="false" text="Save Missions" />
