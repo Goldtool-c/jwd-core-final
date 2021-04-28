@@ -1,19 +1,15 @@
 package com.epam.jwd.core_final.criteria;
 
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
-import com.epam.jwd.core_final.domain.BaseEntity;
-import com.epam.jwd.core_final.domain.Spaceship;
+import com.epam.jwd.core_final.domain.Planet;
 import com.epam.jwd.core_final.exception.UnknownEntityException;
 
 import java.util.ArrayList;
 
-/**
- * Should be a builder for {@link Spaceship} fields
- */
-public class SpaceshipCriteria extends Criteria<Spaceship> {
-    public Spaceship nameSearch(String name)
+public class PlanetCriteria extends Criteria<Planet>{
+    public Planet nameSearch(String name)
     {
-        ArrayList<Spaceship> temp = BaseEntityStorage.GENERAL.getShipStorage();
+        ArrayList<Planet> temp = BaseEntityStorage.GENERAL.getPlanetStorage();
         for (int i = 0; i < temp.size(); i++) {
             if(temp.get(i).getName().equals(name))
             {

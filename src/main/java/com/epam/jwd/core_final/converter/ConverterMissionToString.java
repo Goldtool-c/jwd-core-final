@@ -12,7 +12,7 @@ public enum  ConverterMissionToString {
     {
         StringBuilder sb = new StringBuilder();
         ArrayList<FlightMission> temp = BaseEntityStorage.GENERAL.getFlightMission();
-        sb.append("#name,to,from,startDate,assignedSpaceship;\n");
+        sb.append("#name,to,from,startDate,assignedSpaceship;");
         for (int i = 0; i < temp.size(); i++) {
             sb.append(temp.get(i).getName()); sb.append(',');
             sb.append(temp.get(i).getTo()); sb.append(',');

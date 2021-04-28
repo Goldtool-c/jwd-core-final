@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public enum ConverterStringToSpaceMap {
     GENERAL;
     private int n=0;
-    public ArrayList<String> fileToString(File file) {
+    private ArrayList<String> fileToString(File file) {
         int max=0;
         ArrayList<String> strings = new ArrayList<>();
         try (FileInputStream fin = new FileInputStream(file)) {

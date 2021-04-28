@@ -32,4 +32,16 @@ public enum DateOperations {
         sb.append(date[2]);
         return sb.toString();
     }
+    public int[] localStringToDate(String date)
+    {
+        int[] res = new int[3];
+        StringBuilder sb = new StringBuilder();
+        int counter=0;
+        for (int i = 0; i <date.length() ; i++) {
+            if(date.charAt(i)!='-') { sb.append(date.charAt(i)); }
+            else {res[2-counter]=Integer.parseInt(sb.toString()); counter++; sb=new StringBuilder();}
+        }
+        res[0]=Integer.parseInt(sb.toString());
+        return res;
+    }
 }
