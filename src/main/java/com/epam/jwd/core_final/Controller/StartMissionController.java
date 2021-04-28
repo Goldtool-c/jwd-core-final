@@ -4,7 +4,7 @@ import com.epam.jwd.core_final.Application.ButtonEvents;
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.Repository.PlanetTemp;
 import com.epam.jwd.core_final.domain.FlightMission;
-import com.epam.jwd.core_final.domain.MissionFabric;
+import com.epam.jwd.core_final.factory.impl.MissionFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -56,7 +56,7 @@ public class StartMissionController implements Initializable {
         finish.setOnAction(event -> ButtonEvents.GENERAL.finishPlanetEvent());
         setAll.setOnAction(event-> ButtonEvents.GENERAL.setAllEvent(name1, name2, planetStart, planetEnd, shipname, dateStart));
         confirm.setOnAction(event -> {
-            FlightMission flightMission = MissionFabric.INSTANCE.create(
+            FlightMission flightMission = MissionFactory.INSTANCE.create(
                     PlanetTemp.GENERAL.getFromP(),PlanetTemp.GENERAL.getToP(),PlanetTemp.GENERAL.getSpaceship(), dateStart.getText());
             ArrayList<FlightMission> temp = BaseEntityStorage.GENERAL.getFlightMission();
             temp.add(flightMission);

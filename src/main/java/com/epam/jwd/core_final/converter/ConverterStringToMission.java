@@ -2,7 +2,7 @@ package com.epam.jwd.core_final.converter;
 import com.epam.jwd.core_final.criteria.PlanetCriteria;
 import com.epam.jwd.core_final.criteria.SpaceshipCriteria;
 import com.epam.jwd.core_final.domain.FlightMission;
-import com.epam.jwd.core_final.domain.MissionFabric;
+import com.epam.jwd.core_final.factory.impl.MissionFactory;
 import com.epam.jwd.core_final.domain.Planet;
 import com.epam.jwd.core_final.domain.Spaceship;
 import com.epam.jwd.core_final.util.DateOperations;
@@ -104,7 +104,7 @@ public enum ConverterStringToMission {
             }
             spaceship=new SpaceshipCriteria().nameSearch(sb.toString());
             int[] k =DateOperations.GENERAL.localStringToDate(startDate.toString());
-            flightMissions.add(MissionFabric.INSTANCE.create(from, to, spaceship, DateOperations.GENERAL.dateToString(k)));
+            flightMissions.add(MissionFactory.INSTANCE.create(from, to, spaceship, DateOperations.GENERAL.dateToString(k)));
         }
         return flightMissions;
     }

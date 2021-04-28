@@ -1,9 +1,10 @@
-package com.epam.jwd.core_final.domain;
+package com.epam.jwd.core_final.factory.impl;
 
 import com.epam.jwd.core_final.Main;
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.Repository.PlanetTemp;
 import com.epam.jwd.core_final.Validator.FlightMissionValidator;
+import com.epam.jwd.core_final.domain.*;
 import com.epam.jwd.core_final.exception.InValidPlanetException;
 import com.epam.jwd.core_final.exception.InValidSpaceshipException;
 import com.epam.jwd.core_final.util.DateOperations;
@@ -14,7 +15,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public enum MissionFabric {
+public enum MissionFactory {
     INSTANCE;
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
     public FlightMission create(Planet from, Planet to, Spaceship spaceship, String date)

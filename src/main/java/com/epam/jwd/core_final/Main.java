@@ -2,6 +2,7 @@ package com.epam.jwd.core_final;
 
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.converter.*;
+import com.epam.jwd.core_final.domain.ApplicationProperties;
 import com.epam.jwd.core_final.exception.InvalidStateException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,28 +30,21 @@ public class Main extends javafx.application.Application {
             e.printStackTrace();
         }
         LOGGER.info("Main stage initialized");
-        String appPath=".\\src\\main\\resources\\application.properties";
-        Properties appProps = new Properties();
-        try {
-            appProps.load(new FileInputStream(appPath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         LOGGER.info("Application properties loaded");
-        File file = new File(".\\src\\main\\resources\\input\\"+appProps.getProperty("crewFileName"));
+        File file = new File(".\\src\\main\\resources\\"+ApplicationProperties.GENERAL.input()+"\\"+ ApplicationProperties.GENERAL.crewFileName());
         try {
             BaseEntityStorage.GENERAL.setCrewStorage(ConverterStringToCrewMember.GENERAL.convert(file));
         } catch (InvalidStateException e) {
             e.printStackTrace();
         }
         LOGGER.info("Crewmate storage initialized");
-        file = new File(".\\src\\main\\resources\\input\\"+appProps.getProperty("spaceshipsFileName"));
+        file = new File(".\\src\\main\\resources\\"+ApplicationProperties.GENERAL.input()+"\\"+ApplicationProperties.GENERAL.spaceshipFileName());
         BaseEntityStorage.GENERAL.setShipStorage(ConverterStringToSpaceship.GENERAL.convert(file));
         LOGGER.info("Spaceship storage initialized");
-        file = new File(".\\src\\main\\resources\\input\\"+appProps.getProperty("planetMapFilename"));
+        file = new File(".\\src\\main\\resources\\"+ApplicationProperties.GENERAL.input()+"\\"+ApplicationProperties.GENERAL.planetMapFilename());
         BaseEntityStorage.GENERAL.setPlanetStorage(ConverterStringToSpaceMap.GENERAL.convert(file));
         LOGGER.info("Planet storage initialized");
-        file = new File(".\\src\\main\\resources\\input\\"+appProps.getProperty("missionsFileName"));
+        file = new File(".\\src\\main\\resources\\"+ApplicationProperties.GENERAL.input()+"\\"+ApplicationProperties.GENERAL.missionsFileName());
         BaseEntityStorage.GENERAL.setFlightMission(ConverterStringToMission.GENERAL.convert(file));
         LOGGER.info("Mission storage initialized");
         primaryStage.setTitle("Nasa");
