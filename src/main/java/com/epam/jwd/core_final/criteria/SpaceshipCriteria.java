@@ -6,10 +6,6 @@ import com.epam.jwd.core_final.domain.Spaceship;
 import com.epam.jwd.core_final.exception.UnknownEntityException;
 
 import java.util.ArrayList;
-
-/**
- * Should be a builder for {@link Spaceship} fields
- */
 public class SpaceshipCriteria extends Criteria<Spaceship> {
     public Spaceship nameSearch(String name)
     {

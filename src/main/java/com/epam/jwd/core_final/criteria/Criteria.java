@@ -9,10 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-
-/**
- * Should be a builder for {@link BaseEntity} fields
- */
 public abstract class Criteria<T extends BaseEntity> {
     private static final Logger LOGGER = LoggerFactory.getLogger(Criteria.class);
     public T searchId(int id){

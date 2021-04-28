@@ -48,7 +48,6 @@ public enum ConverterStringToSpaceship {
         short []requires=new short[4];
         for (int i = 0; i <strings.size(); i++) {
             sb=new StringBuilder();
-            System.out.println();
             count=0;
             for (int j = 0; j <strings.get(i).length() ; j++) {
                 if(strings.get(i).charAt(j)==','||strings.get(i).charAt(j)==';')

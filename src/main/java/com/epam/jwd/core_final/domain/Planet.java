@@ -4,12 +4,6 @@ import com.epam.jwd.core_final.Repository.TempValues;
 
 import java.awt.Point;
 import java.util.Objects;
-
-/**
- * Expected fields:
- * <p>
- * location could be a simple class Point with 2 coordinates
- */
 public class Planet extends AbstractBaseEntity{
     private Point cords;
     public Planet()

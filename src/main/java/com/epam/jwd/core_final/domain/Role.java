@@ -19,18 +19,19 @@ public enum Role implements BaseEntity {
         return id;
     }
 
-    /**
-     * todo via java.lang.enum methods!
-     */
     @Override
     public String getName() {
-        return null;
+        int id = Math.toIntExact(getId());
+        switch (id)
+        {
+            case 1: { return "Mission_Specialist"; }
+            case 2: { return "Flight_Engineer"; }
+            case 3: { return "Pilot"; }
+            case 4: { return "Commander"; }
+            default:{ throw new UnknownEntityException("Id "+id+" does not exist");}
+        }
     }
 
-    /**
-     * todo via java.lang.enum methods!
-     * @throws UnknownEntityException if such id does not exist
-     */
     public static Role resolveRoleById(int id) {
         switch (id)
         {

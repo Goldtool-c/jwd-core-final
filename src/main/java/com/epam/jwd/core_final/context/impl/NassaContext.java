@@ -16,7 +16,6 @@ import java.util.Collection;
 // todo
 public class NassaContext implements ApplicationContext {
 
-    // no getters/setters for them
     private Collection<CrewMember> crewMembers = new ArrayList<>();
     private Collection<Spaceship> spaceships = new ArrayList<>();
     private Collection<Planet> planetMap = new ArrayList<>();
@@ -26,10 +25,6 @@ public class NassaContext implements ApplicationContext {
         return null;
     }
 
-    /**
-     * You have to read input files, populate collections
-     * @throws InvalidStateException
-     */
     @Override
     public void init() throws InvalidStateException {
         File file = new File(".src\\main\\resources\\input\\crew");
