@@ -1,12 +1,11 @@
 package com.epam.jwd.core_final.Repository;
 
-import com.epam.jwd.core_final.domain.FlightMission;
 import com.epam.jwd.core_final.domain.Planet;
 import com.epam.jwd.core_final.domain.Spaceship;
 
 import java.time.LocalDate;
 
-public enum PlanetTemp {
+public enum TempValues {
     GENERAL;
     private static String from;
     private static LocalDate currentDate;
@@ -21,7 +20,7 @@ public enum PlanetTemp {
     }
 
     public void setId(int id) {
-        PlanetTemp.id = id;
+        TempValues.id = id;
     }
 
     public  LocalDate getCurrentDate() {
@@ -29,7 +28,7 @@ public enum PlanetTemp {
     }
 
     public void setCurrentDate(LocalDate currentDate) {
-        PlanetTemp.currentDate = currentDate;
+        TempValues.currentDate = currentDate;
     }
 
     public Planet getToP() {
@@ -37,7 +36,7 @@ public enum PlanetTemp {
     }
 
     public void setToP(Planet toP) {
-        PlanetTemp.toP = toP;
+        TempValues.toP = toP;
     }
 
     public Planet getFromP() {
@@ -45,7 +44,7 @@ public enum PlanetTemp {
     }
 
     public void setFromP(Planet fromP) {
-        PlanetTemp.fromP = fromP;
+        TempValues.fromP = fromP;
     }
 
     public Spaceship getSpaceship() {
@@ -53,7 +52,7 @@ public enum PlanetTemp {
     }
 
     public void setSpaceship(Spaceship spaceship) {
-        PlanetTemp.spaceship = spaceship;
+        TempValues.spaceship = spaceship;
     }
 
     public String getTo() {
@@ -61,7 +60,7 @@ public enum PlanetTemp {
     }
 
     public void setTo(String to) {
-        PlanetTemp.to = to;
+        TempValues.to = to;
     }
 
     public String getFrom() {
@@ -69,6 +68,6 @@ public enum PlanetTemp {
     }
 
     public void setFrom(String name) {
-        PlanetTemp.from = name;
+        TempValues.from = name;
     }
 }

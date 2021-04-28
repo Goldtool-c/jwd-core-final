@@ -2,7 +2,7 @@ package com.epam.jwd.core_final.factory.impl;
 
 import com.epam.jwd.core_final.Main;
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
-import com.epam.jwd.core_final.Repository.PlanetTemp;
+import com.epam.jwd.core_final.Repository.TempValues;
 import com.epam.jwd.core_final.Validator.FlightMissionValidator;
 import com.epam.jwd.core_final.domain.*;
 import com.epam.jwd.core_final.exception.InValidPlanetException;
@@ -62,9 +62,9 @@ public enum MissionFactory {
         flightMission.setAssignedCrew(crew);
         StringBuilder sb = new StringBuilder();
         sb.append(5);
-        int id =PlanetTemp.GENERAL.getId();
+        int id = TempValues.GENERAL.getId();
         sb.append(id+1);
-        PlanetTemp.GENERAL.setId(id+1);
+        TempValues.GENERAL.setId(id+1);
         flightMission.setId(Integer.parseInt(sb.toString()));
         LOGGER.info("Mission created");
         return flightMission;

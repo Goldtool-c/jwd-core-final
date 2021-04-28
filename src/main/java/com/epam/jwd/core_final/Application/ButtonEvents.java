@@ -1,9 +1,8 @@
 package com.epam.jwd.core_final.Application;
 
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
-import com.epam.jwd.core_final.Repository.PlanetTemp;
+import com.epam.jwd.core_final.Repository.TempValues;
 import com.epam.jwd.core_final.converter.ConverterMissionToString;
-import com.epam.jwd.core_final.criteria.SpaceshipCriteria;
 import com.epam.jwd.core_final.domain.CrewMember;
 import com.epam.jwd.core_final.domain.FlightMission;
 import com.epam.jwd.core_final.domain.Planet;
@@ -22,8 +21,6 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -77,22 +74,22 @@ public enum ButtonEvents {
     }
     public void setAllEvent(String name1, String name2, Label planetStart, Label planetEnd, Label shipName, Label date)
     {
-        date.setText(PlanetTemp.GENERAL.getCurrentDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
-        planetStart.setText(name1 + " " + PlanetTemp.GENERAL.getFrom());
-        planetEnd.setText(name2 + " " + PlanetTemp.GENERAL.getTo());
+        date.setText(TempValues.GENERAL.getCurrentDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        planetStart.setText(name1 + " " + TempValues.GENERAL.getFrom());
+        planetEnd.setText(name2 + " " + TempValues.GENERAL.getTo());
         ArrayList<Spaceship> temp = BaseEntityStorage.GENERAL.getShipStorage();
         ArrayList<Planet> temp1 = BaseEntityStorage.GENERAL.getPlanetStorage();
         Planet to = null, from = null;
         for (int i = 0; i < temp1.size(); i++) {
-            if(PlanetTemp.GENERAL.getFrom().equals(temp1.get(i).getName()))
+            if(TempValues.GENERAL.getFrom().equals(temp1.get(i).getName()))
             {
                 from=temp1.get(i);
-                PlanetTemp.GENERAL.setFromP(temp1.get(i));
+                TempValues.GENERAL.setFromP(temp1.get(i));
             }
-            if((PlanetTemp.GENERAL.getTo().equals(temp1.get(i).getName())))
+            if((TempValues.GENERAL.getTo().equals(temp1.get(i).getName())))
             {
                 to=temp1.get(i);
-                PlanetTemp.GENERAL.setToP(temp1.get(i));
+                TempValues.GENERAL.setToP(temp1.get(i));
             }
         }
         int k1,k2;
@@ -103,7 +100,7 @@ public enum ButtonEvents {
         for (int i = 0; i < temp.size(); i++) {
             if(temp.get(i).getReady()&&temp.get(i).getFlightDistance()>d)
             {
-                PlanetTemp.GENERAL.setSpaceship(temp.get(i));
+                TempValues.GENERAL.setSpaceship(temp.get(i));
                 shipName.setText(temp.get(i).getName());
             }
         }
@@ -144,7 +141,7 @@ public enum ButtonEvents {
             if(date[1]==5||date[1]==7||date[1]==10||date[1]==12){date[0]=30; date[1]--;}
         }
         LocalDate date1=LocalDate.of(date[2], date[1], date[0]);
-        LocalDate date2=PlanetTemp.GENERAL.getCurrentDate();
+        LocalDate date2= TempValues.GENERAL.getCurrentDate();
         if(date1.isAfter(date2))
         {
             label.setText(DateOperations.GENERAL.dateToString(date));
@@ -152,8 +149,8 @@ public enum ButtonEvents {
     }
     public void currentDatePlusEvent(Label label)
     {
-        label.setText(PlanetTemp.GENERAL.getCurrentDate().plusDays(1).toString());
-        PlanetTemp.GENERAL.setCurrentDate(PlanetTemp.GENERAL.getCurrentDate().plusDays(1));
+        label.setText(TempValues.GENERAL.getCurrentDate().plusDays(1).toString());
+        TempValues.GENERAL.setCurrentDate(TempValues.GENERAL.getCurrentDate().plusDays(1));
         ArrayList<FlightMission> flightMissions=BaseEntityStorage.GENERAL.getFlightMission();
         for (int i = 0; i <flightMissions.size() ; i++) {
             if(flightMissions.get(i).getEndDate1().toString().equals(label.getText()))

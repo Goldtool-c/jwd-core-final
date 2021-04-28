@@ -2,7 +2,7 @@ package com.epam.jwd.core_final.Controller;
 
 import com.epam.jwd.core_final.Application.ButtonEvents;
 import com.epam.jwd.core_final.Application.Events;
-import com.epam.jwd.core_final.Repository.PlanetTemp;
+import com.epam.jwd.core_final.Repository.TempValues;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -39,7 +39,7 @@ public class MainController implements Initializable {
         ObservableList<String> options = FXCollections.observableArrayList("CrewMembers", "Spaceships", "Planet map", "Missions");
         ShowAll.setItems(options);
         currentDate.setText(LocalDate.now().toString());
-        PlanetTemp.GENERAL.setCurrentDate(LocalDate.now());
+        TempValues.GENERAL.setCurrentDate(LocalDate.now());
         plusDate.setOnAction(event -> ButtonEvents.GENERAL.currentDatePlusEvent(currentDate));
         ShowAll.setOnAction(event ->
         {

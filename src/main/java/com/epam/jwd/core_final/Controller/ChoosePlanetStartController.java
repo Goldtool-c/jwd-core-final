@@ -2,7 +2,7 @@ package com.epam.jwd.core_final.Controller;
 
 import com.epam.jwd.core_final.Repository.BaseEntityStorage;
 import com.epam.jwd.core_final.domain.Planet;
-import com.epam.jwd.core_final.Repository.PlanetTemp;
+import com.epam.jwd.core_final.Repository.TempValues;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -49,7 +49,7 @@ public class ChoosePlanetStartController implements Initializable {
                     @SuppressWarnings("rawtypes")
                     TableColumn column = pos.getTableColumn();
                     String val = column.getCellData(row).toString();
-                    PlanetTemp.GENERAL.setFrom(val);
+                    TempValues.GENERAL.setFrom(val);
                     Stage stage = (Stage) planetTable.getScene().getWindow();
                     stage.close();
                 }
